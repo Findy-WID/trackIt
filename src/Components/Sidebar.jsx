@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router";
 import { UserContext } from "../context/UserContext";
-import ExpenseForm from "./ExpenseForm";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
+// import ExpenseForm from "./ExpenseForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export const Sidebar = () => {
@@ -40,7 +40,7 @@ export const Sidebar = () => {
       {showModal && (
         <div className="modalOverlay">
           <div className="modalContent">
-            <ExpenseForm />
+            {/* <ExpenseForm /> */}
             <button onClick={() => setShowModal(false)}>
               <FontAwesomeIcon icon={faXmark} />
             </button>
