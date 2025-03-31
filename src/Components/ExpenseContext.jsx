@@ -1,21 +1,36 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const ExpenseContext = createContext();
 
-export const ExpenseProvider = ({Children}) => {
-    const [expense, setExpense] = useState([]);
+export const ExpenseProvider = ({ children }) => {
+    const [expenses, setExpenses] = useState(() => {
+        // Load initial data from localStorage
+        const savedExpenses = localStorage.getItem("expenses");
+        return savedExpenses ? JSON.parse(savedExpenses) : [];
+    });
 
-    const Addexpense =(newExpense) => {
-        setExpense((prev) =>{
-            const updateExpense = [...prev, newExpense];
-            localStorage.setItem("expenses", JSON.stringify(Addexpense));
-            return Addexpense;
-        })
+    // Log expenses whenever they change
+    useEffect(() => {
+    }, [expenses]);
 
-        return (
-            <ExpenseContext.Provider value={{ expense, addExpense }}>
-                {Children}
-            </ExpenseContext.Provider>
-        )
-    }
-}
+    const addExpense = (newExpense) => {
+        setExpenses((prevExpenses) => {
+            const updatedExpenses = [...prevExpenses, newExpense];
+            localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
+            console.log("Added new expense:", newExpense);
+            console.log("All expenses:", updatedExpenses);
+            return updatedExpenses;
+        });
+    };
+
+    const value = {
+        expenses,
+        addExpense
+    };
+
+    return (
+        <ExpenseContext.Provider value={value}>
+            {children}
+        </ExpenseContext.Provider>
+    );
+};
