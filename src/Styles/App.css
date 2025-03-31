@@ -71,12 +71,85 @@ body {
     margin: 10px 0;
   }
   
-  /* Input Fields */
-  input, select {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    margin: 5px 0;
-  }
+ /* Center the form */
+form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Center heading */
+h2 {
+  text-align: center;
+}
+
+/* Input Fields */
+input, select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+/* Label styling */
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Radio buttons styling */
+.radio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+/* Collapsible dropdown for categories */
+.category-dropdown {
+  position: relative;
+}
+
+.category-button {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  background: #f9f9f9;
+  text-align: left;
+}
+
+.category-options {
+  display: none;
+  position: absolute;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.category-options.show {
+  display: block;
+}
+
+.category-options label {
+  padding: 8px;
+  display: block;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+.category-options label:hover {
+  background: #f1f1f1;
+}
+
   
