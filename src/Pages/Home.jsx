@@ -1,11 +1,12 @@
-import React from 'react'
-import { Sidebar } from '../Components/Sidebar'
+import { useState } from "react";
+import { ExpenseForm } from "../Components/ExpenseForm";
+import { ExpenseList } from "../Components/ExpenseList";
+import '../Styles/App.css'
+
+
 
 export const Home = () => {
   return (
-    <div>
-      <Sidebar />
-      Home
-    </div>
+    <div>Home</div>
   )
 }
