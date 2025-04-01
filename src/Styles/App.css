@@ -1,77 +1,81 @@
 /* General Styles */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #FEFEFE; /* Light background */
-    color: #333; /* Default text color */
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Button Styling */
-  .btn {
-    background-color: #FFC816; /* Yellow */
-    color: #000; /* Black text */
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .btn:hover {
-    background-color: #e6b812; /* Darker yellow on hover */
-  }
-  
-  /* Navbar Styling */
-  .navbar {
-    background-color: #552C88; /* Purple */
-    color: #FEFEFE; /* White text */
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Navbar Buttons */
-  .navbar .btn {
-    background-color: #FEFEFE; /* White */
-    color: #552C88; /* Purple text */
-    padding: 8px 12px;
-    border-radius: 5px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .navbar .btn:hover {
-    background-color: #ddd;
-  }
-  
-  /* Sidebar Styling */
-  .sidebar {
-    background-color: #552C88; /* Purple */
-    color: #FEFEFE; /* White text */
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 20px;
-  }
-  
-  /* Card Component */
-  .card {
-    background-color: #FFF;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 15px;
-    margin: 10px 0;
-  }
-  
- /* Center the form */
+  font-family: "Inter", sans-serif;
+  background-color: #fefefe; /* Light background */
+  color: #333; /* Default text color */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Button Styling */
+.btn {
+  background-color: #ffc816; /* Yellow */
+  color: #000; /* Black text */
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #e6b812; /* Darker yellow on hover */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #552c88; /* Purple */
+  color: #fefefe; /* White text */
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar Buttons */
+.navbar .btn {
+  background-color: #fefefe; /* White */
+  color: #552c88; /* Purple text */
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar .btn:hover {
+  background-color: #ddd;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  background-color: #552c88; /* Purple */
+  color: #fefefe; /* White text */
+  /* width: 250px; */
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Card Component */
+.card {
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+}
+
+/* Center the form */
 form {
   max-width: 400px;
   margin: 40px auto;
@@ -87,7 +91,8 @@ h2 {
 }
 
 /* Input Fields */
-input, select {
+input,
+select {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -187,7 +192,3 @@ label {
   border-radius: 5px;
   margin-top: 5px;
 }
-
-
-
-  

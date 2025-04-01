@@ -29,6 +29,7 @@
   color: #552c88;
   padding: 0.5em 0.75em;
   border-radius: 0.313rem;
+  font-size: 1.12rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -41,8 +42,8 @@
 }
 
 .addExpenseBtn {
-  background-color: #fefefe;
-  color: #552c88;
+  background-color: #ffc816;
+  color: #000;
   padding: 0.75em;
   border-radius: 0.313rem;
   font-size: 1rem;
@@ -54,7 +55,10 @@
 }
 
 .addExpenseBtn:hover,
-.addExpenseBtn:focus,
+.addExpenseBtn:focus {
+  background-color: #e6b812;
+}
+
 .navItem:hover,
 .navItem:focus {
   background-color: #6a39a3;

@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/App.css";
 import "../Styles/sidebar/sidebar.css";
+import { ExpenseForm } from "./ExpenseForm";
 
 export const Sidebar = ({ setActiveSection }) => {
   const { user } = useContext(UserContext);
@@ -43,7 +44,7 @@ export const Sidebar = ({ setActiveSection }) => {
           Daily Expenses
         </button>
         <button onClick={() => setActiveSection("goals")} className="navItem">
-          Saving Goals
+          Financial Goals
         </button>
       </nav>
 
@@ -56,13 +57,13 @@ export const Sidebar = ({ setActiveSection }) => {
       {showModal && (
         <div className="modalOverlay" onClick={handleOverlayClick}>
           <div className="modalContent">
-            {/* <ExpenseForm /> */}
             <button
               onClick={() => setShowModal(false)}
               className="modalCloseBtn"
             >
               <FontAwesomeIcon icon={faXmark} />
             </button>
+            <ExpenseForm />
           </div>
         </div>
       )}
