@@ -7,6 +7,21 @@ import '../Styles/App.css'
 
 export const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <h2>Dashboard</h2>
+      <ExpenseButton />
+    </>
+  )
+}
+
+export const ExpenseButton = () => {
+  const [formisOpen, setFormisOpen] = useState(false);
+
+  return (
+    <div>
+      {formisOpen && <ExpenseForm closeForm={() => setFormisOpen(false)}/>}
+      <ExpenseList />  
+      <button onClick={() => setFormisOpen(true)} className="btn">Add Expense</button>
+    </div>
   )
 }
