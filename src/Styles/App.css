@@ -151,5 +151,43 @@ label {
 .category-options label:hover {
   background: #f1f1f1;
 }
+/* Style for the collapsible Expense List */
+.expense-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.expense-title {
+  cursor: pointer;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expense-title:hover {
+  background: #e0e0e0;
+}
+
+.arrow {
+  font-size: 16px;
+  transition: transform 0.2s;
+}
+
+.expense-details {
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+
 
   
