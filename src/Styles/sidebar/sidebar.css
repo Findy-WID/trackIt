@@ -1,0 +1,88 @@
+.profileSection {
+  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.profileName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.sideNavSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  flex-grow: 1;
+}
+
+.navItem {
+  background-color: #fefefe;
+  color: #552c88;
+  padding: 0.5em 0.75em;
+  border-radius: 0.313rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.expenseBtnContainer {
+  margin: 0 auto;
+}
+
+.addExpenseBtn {
+  background-color: #fefefe;
+  color: #552c88;
+  padding: 0.75em;
+  border-radius: 0.313rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-bottom: 6em;
+}
+
+.addExpenseBtn:hover,
+.addExpenseBtn:focus,
+.navItem:hover,
+.navItem:focus {
+  background-color: #6a39a3;
+  color: #fefefe;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background: #fefefe;
+  padding: 1.25em;
+  border-radius: 0.63em;
+  width: 400px;
+}
+
+.modalCloseBtn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
