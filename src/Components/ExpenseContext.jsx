@@ -5,6 +5,7 @@ export const ExpenseContext = createContext();
 export const ExpenseProvider = ({ children }) => {
     const [expenses, setExpenses] = useState(() => {
         const savedExpenses = localStorage.getItem("expenses");
+        //localStorage.clear();  uncomment this code if you want to clear your table
         return savedExpenses ? JSON.parse(savedExpenses) : []; 
     });
 

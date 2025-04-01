@@ -15,13 +15,12 @@ export const Home = () => {
 }
 
 export const ExpenseButton = () => {
-  const [formisOpen, setFormisOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
     <div>
-      {formisOpen && <ExpenseForm closeForm={() => setFormisOpen(false)}/>}
-      <ExpenseList />  
-      <button onClick={() => setFormisOpen(true)} className="btn">Add Expense</button>
+      {isFormOpen && <ExpenseForm closeForm={() => setIsFormOpen(false)}/>}
+      <button  onClick={() => setIsFormOpen(true)} className="btn">Add Expense</button>
     </div>
   )
 }
