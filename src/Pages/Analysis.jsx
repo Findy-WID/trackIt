@@ -1,7 +1,11 @@
 import React from 'react'
 
-export const Analysis = () => {
+ const Analysis = () => {
   return (
-    <div>Analysis</div>
+    <div>
+        <h2>Analysis</h2>
+    </div>
   )
 }
+
+export default Analysis
