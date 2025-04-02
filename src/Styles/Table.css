@@ -47,9 +47,9 @@ tr:hover {
 .total-expenses {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: #3b0685;
   padding: 10px;
-  background-color: #f8f9fa;
+  background-color: #dbdb6d;
   border-radius: 5px;
 }
 
@@ -128,3 +128,21 @@ tr:hover {
     gap: 10px;
   }
 } 
+
+
+.filter-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.filter-controls button:hover {
+  background-color: #45a049;
+}
+
+.date-filter {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
