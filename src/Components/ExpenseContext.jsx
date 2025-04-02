@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 
 export const ExpenseContext = createContext();
 
@@ -22,4 +22,9 @@ export const ExpenseProvider = ({ children }) => {
             {children}
         </ExpenseContext.Provider>
     );
+};
+
+// ✅ Create the custom hook
+export const useExpenseContext = () => {
+    return useContext(ExpenseContext);
 };

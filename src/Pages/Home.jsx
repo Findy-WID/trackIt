@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ExpenseForm } from "../Components/ExpenseForm";
 import { ExpenseList } from "../Components/ExpenseList";
+import { ExpensePieChart } from "../Components/ExpensePieChart";
 import '../Styles/App.css'
 
 
@@ -22,6 +23,7 @@ export const ExpenseButton = () => {
       {formisOpen && <ExpenseForm closeForm={() => setFormisOpen(false)}/>}
       <ExpenseList />  
       <button onClick={() => setFormisOpen(true)} className="btn">Add Expense</button>
+      <ExpensePieChart />
     </div>
   )
 }
