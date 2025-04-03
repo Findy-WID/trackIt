@@ -1,0 +1,95 @@
+.recentExpensesCard {
+    background-color: #552C88;
+    color: #fefefe;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Card width */
+    margin: 20px auto; /* Centering the card */
+    box-sizing: border-box;
+}
+
+.recentExpensesCard h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.recentExpensesCard span {
+    display: block;
+    color: #fefefe;
+    margin-bottom: 15px;
+}
+
+.recentExpensesList {
+    list-style-type: none;
+    padding: 0;
+}
+
+.expenseItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.expenseTitle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.expenseAmount {
+    text-align: right;
+    font-weight: bold;
+    color: #FFC816;
+}
+
+.viewMoreBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e1e1e1;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .viewMoreBtn button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .viewMoreBtn a{
+    text-decoration: none;
+  }
+  
+  .viewMoreBtn button:focus {
+    outline: none;
+  }
+  
+  .viewMoreBtn svg {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #333;
+    animation: slide 3s ease-in-out infinite; /* Slide from left to right */
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(-10px); /* Start off-screen to the left */
+    }
+    50% {
+      transform: translateX(10px); /* Move to the right */
+    }
+    100% {
+      transform: translateX(-10px); /* Return off-screen to the left */
+    }
+  }
+  
+  
+  
