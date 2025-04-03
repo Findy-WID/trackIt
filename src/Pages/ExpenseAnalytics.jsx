@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from 'chart.js';
-import { ExpenseContext } from './ExpenseContext';
+import { ExpenseContext } from '../Components/ExpenseContext';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
@@ -73,7 +73,8 @@ const ExpenseAnalytics = () => {
 
     return (
         <div className="expense-analytics">
-            <div className="date-filter" style={{ marginBottom: '20px', textAlign: 'center' }}>
+            <div className="date-filter" style={{ padddingRight: '60px',marginBottom: '20px', textAlign: 'center' }}>
+            filter
                 <input
                     type="date"
                     value={selectedDate}

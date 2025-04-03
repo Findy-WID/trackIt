@@ -80,7 +80,7 @@ Want to contribute? Follow these steps:
 - **Color Scheme**
 
   - **Primary (Buttons, Highlights)**: `#FFC816` (Yellow)
-  - **Secondary (Navbar, Sidebar)**: `#552C88` (Purple)
+  - **Secondary (Navbar, Sidebar)**: #552C88`` (Purple)
   - **Text & Backgrounds**: `#FEFEFE` (White)
 
 - **Styling Guidelines**

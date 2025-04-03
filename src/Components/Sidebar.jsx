@@ -21,6 +21,7 @@ export const Sidebar = () => {
       setShowModal(false);
     }
   };
+  const [isExpenseDropdown, setIsExpenseDropdown] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -53,17 +54,19 @@ export const Sidebar = () => {
             <i className="fas fa-money-bill"></i>
             <span>Expenses</span>
           </Link>
-          <Link to="/analysis" className="navItem">
+
+          <Link to="/analysis" className="nav-link">
+            {" "}
+            {/* Changed from /Analysis to /analysis */}
             <i className="fas fa-chart-pie"></i>
             <span>Analytics</span>
           </Link>
-          <Link to="/expense-table" className="navItem">
+
+          <Link to="/expense-table" className="nav-link">
+            {" "}
+            {/* Changed from /ExpenseTablePage to /expense-table */}
             <i className="fas fa-table"></i>
             <span>Expense Table</span>
-          </Link>
-          <Link to="/goals" className="navItem">
-            <i className="fas fa-goals"></i>
-            <span>Financial Goals</span>
           </Link>
         </nav>
 

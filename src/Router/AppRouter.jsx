@@ -5,10 +5,16 @@ import {
   useLocation,
 } from "react-router-dom";
 import { Landing } from "../Pages/Landing";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
+import Landing from "../Pages/Landing";
 import { Home } from "../Pages/Home";
-import ExpenseAnalytics from "../Components/ExpenseAnalytics";
-import ExpenseTablePage from "../Pages/ExpenseTablePage";
-import { Daily } from "../Pages/Daily";
 import Expenses from "../Pages/Expenses";
 import ExpenseAnalytics from "../Components/ExpenseAnalytics";
 import ExpenseTablePage from "../Pages/ExpenseTablePage";
@@ -27,8 +33,8 @@ function AppRouter() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/expenses" element={<Expenses />} />
           <Route path="/analysis" element={<ExpenseAnalytics />} />
-          <Route path="/daily" element={<Daily />} />
           <Route path="/goals" element={<Goals />} />
           <Route path="/expense-table" element={<ExpenseTablePage />} />
           <Route path="*" element={<h2>404 - Page Not Found</h2>} />
