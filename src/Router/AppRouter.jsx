@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { Landing } from "../Pages/Landing";
+import  Landing  from "../Pages/Landing";
 import { Home } from "../Pages/Home";
 import ExpenseAnalytics from '../Pages/ExpenseAnalytics';
 import ExpenseTablePage from '../Pages/ExpenseTablePage';
@@ -9,6 +9,8 @@ import Monthly from "../Pages/Monthly";
 import { Goals } from "../Pages/Goals";
 import { Sidebar } from "../Components/Sidebar";
 import { Link } from "react-router-dom";
+import SignUp from '../Pages/SignUp';
+import Login from '../Pages/Login';
 
 
 function AppRouter() {
@@ -31,6 +33,8 @@ function AppRouter() {
                 <Route path="/expense-table/all" element={<ExpenseTablePage />} />
                 <Route path="/expense-table/daily" element={<Daily />} />
                 <Route path="/expense-table/monthly" element={<Monthly />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="*" element={<h2>404 - Page Not Found</h2>} />
             </Routes>
         </div>
