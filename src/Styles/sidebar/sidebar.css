@@ -1,5 +1,46 @@
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #552c88;
+  color: #fefefe;
+  width: 60px;
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.toggleBtn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.sidebarContent {
+  padding: 20px 10px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar.open .profileSection {
+  opacity: 1;
+}
+
 .profileSection {
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,16 +61,16 @@
 .sideNavSection {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
   flex-grow: 1;
 }
 
 .navItem {
-  background-color: #fefefe;
-  color: #552c88;
+  display: flex;
+  align-items: center;
+  color: #fefefe;
   padding: 0.5em 0.75em;
   border-radius: 0.313rem;
-  font-size: 1.12rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -37,8 +78,46 @@
   text-decoration: none;
 }
 
+.navItem:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navItem i {
+  width: 20px;
+  margin-right: 2em;
+}
+
+.navItem span {
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.open .navItem span {
+  opacity: 1;
+}
+
 .expenseBtnContainer {
-  margin: 0 auto;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4em;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .addExpenseBtn {
@@ -46,12 +125,10 @@
   color: #000;
   padding: 0.75em;
   border-radius: 0.313rem;
-  font-size: 1rem;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: background 0.3s;
-  margin-bottom: 6em;
 }
 
 .addExpenseBtn:hover,
@@ -63,6 +140,23 @@
 .navItem:focus {
   background-color: #6a39a3;
   color: #fefefe;
+}
+
+.logoutBtn {
+  background-color: #d9534f;
+  color: white;
+  padding: 0.75em;
+  border-radius: 0.313rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.logoutBtn:hover {
+  background-color: #c9302c;
 }
 
 .modalOverlay {
