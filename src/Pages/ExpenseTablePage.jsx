@@ -24,42 +24,8 @@ const ExpenseTablePage = () => {
 
   return (
     <div className="expense-table-page">
-      <div className="table-header">
         <h2>Expense Summary</h2>
-        <div className="filter-section">
-          <h1>Each Day</h1>
-          <div className="filter-controls" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-            <input
-              type="date"
-              value={selectedDate}
-              onChange={(e) => setSelectedDate(e.target.value)}
-              className="date-filter"
-            />
-            {selectedDate && (
-              <button
-                onClick={handleShowAllExpenses}
-                style={{
-                  padding: '8px 16px',
-                  backgroundColor: '#4CAF50',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.3s'
-                }}
-                onMouseOver={(e) => e.target.style.backgroundColor = '#45a049'}
-                onMouseOut={(e) => e.target.style.backgroundColor = '#4CAF50'}
-              >
-                Show All Expenses
-              </button>
-            )}
-          </div>
-          <div className="total-expenses">
-            Total Expenses: N{totalExpenses.toFixed(2)}
-          </div>
-        </div>
-      </div>
-
+   
       <div className="table-container">
         <table>
           <thead>
