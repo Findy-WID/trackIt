@@ -5,6 +5,7 @@ import '../Styles/Sidebar.css';
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExpenseDropdown, setIsExpenseDropdown] = useState(false);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -37,11 +38,46 @@ export const Sidebar = () => {
           <span>Analytics</span>
         </Link>
           
-          <Link to="/expense-table" className="nav-link">  {/* Changed from /ExpenseTablePage to /expense-table */}
-          <i className="fas fa-table"></i>
+          <div className="nav-item">
+            <div 
+              className="nav-link"
+              onClick={() => setIsExpenseDropdown(!isExpenseDropdown)}
+              style={{ cursor: 'pointer' }}
+            >
+              <i className="fas fa-table"></i>
+              <span style={{ marginRight: '10px' }}>Expense Table</span>
+              <i className={`fas fa-chevron-${isExpenseDropdown ? 'down' : 'right'}`} 
+                 style={{ fontSize: '12px' }}
+              />
+            </div>
 
-            <span>Expense Table</span>
-          </Link>
+            {isExpenseDropdown && (
+              <div className="dropdown-menu">
+                <Link 
+                  to="/expense-table/all" 
+                  className="dropdown-item"
+                >
+                  <i className="fas fa-list"></i>
+                  <span>All Expenses</span>
+                </Link>
+                <Link 
+                  to="/expense-table/daily" 
+                  className="dropdown-item"
+                >
+                  <i className="fas fa-calendar-day"></i>
+                  <span>Daily Expenses</span>
+                </Link>
+
+                <Link 
+                  to="/expense-table/monthly" 
+                  className="dropdown-item"
+                >
+                  <i className="fas fa-calendar-day"></i>
+                  <span>Monthly Expenses</span>
+                </Link>
+              </div>
+            )}
+          </div>
         </nav>
       </div>
     </div>

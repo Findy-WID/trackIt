@@ -146,3 +146,129 @@ tr:hover {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
+
+.daily-expense-page {
+  padding: 20px;
+}
+
+.daily-header {
+  margin-bottom: 20px;
+}
+
+.date-selector {
+  margin: 20px 0;
+}
+
+.date-filter {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.daily-total {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin: 15px 0;
+  display: inline-block;
+}
+
+.select-date-message {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.no-data {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}
+
+.monthly-expense-page {
+  padding: 20px;
+}
+
+.monthly-header {
+  margin-bottom: 30px;
+}
+
+.month-selector {
+  margin: 20px 0;
+}
+
+.month-filter {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.monthly-summary {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.monthly-total {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.monthly-total .amount {
+  color: #4CAF50;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.category-summary {
+  margin-top: 20px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.category-item {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-name {
+  color: #2c3e50;
+}
+
+.category-amount {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.select-month-message {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+.no-data {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}
