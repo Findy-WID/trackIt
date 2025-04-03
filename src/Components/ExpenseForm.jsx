@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { ExpenseContext } from './ExpenseContext';
-import "../Styles/App.css";
+import '../Styles/ExpenseForm.css'
 
 
 export const ExpenseForm = ({ closeForm }) => {
@@ -99,9 +99,10 @@ export const ExpenseForm = ({ closeForm }) => {
         </select>
         {errors.category && <span className="error">{errors.category}</span>}
 
-        <button type="submit">Save</button>
-        <button type="button" onClick={closeForm}>Cancel</button>
+        <button type="submit" className='btn' style={{margin: "20px"}}>Save</button>
+        <button type="button" onClick={closeForm} className="btn" style={{margin: "20px"}}>Cancel</button>
       </form>
     </div>
   );
 };
+export default ExpenseForm

@@ -25,7 +25,7 @@ export const ExpenseProvider = ({ children }) => {
     );
 };
 
-// ✅ Create the custom hook
+// Create the custom hook
 export const useExpenseContext = () => {
     return useContext(ExpenseContext);
 };
