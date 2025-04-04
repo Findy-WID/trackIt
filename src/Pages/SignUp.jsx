@@ -42,7 +42,7 @@ const SignUp = () => {
 
     // Check if email is already registered
     const existingUsers = JSON.parse(localStorage.getItem('users') || '[]');
-    if (existingUsers.some(user => user.email === formData.email)) {
+    if (existingUsers.find(user => user.email === formData.email)) {
       setError('Email already registered');
       return;
     }
