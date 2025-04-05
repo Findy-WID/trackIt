@@ -28,7 +28,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
           <h2>Create New Goal</h2>
           <p>Set a new financial goal</p>
         </div>
-        <form action="">
+        <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="goal name">Goal Name</label>
             <input

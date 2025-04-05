@@ -1,13 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import GoalFormModal from "../Components/GoalFormModal";
 
 export const Goals = () => {
+  const [goals, setGoals] = useState([]);
+  const [showGoalModal, setShowGoalModal] = useState(false);
+
+  React.useEffect(() => {
+    const savedGoals = JSON.parse(localStorage.getItem("goals")) || [];
+    setGoals(savedGoals);
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem("goals", JSON.stringify(goals));
+  }, [goals]);
+
+  const addGoal = (goal) => {
+    setGoals((prev) => [...prev, goal]);
+  };
   return (
-    <div>
+    <div className="goalPage">
       <div>
-        <h1>Financial Goals</h1>
-        <p>Set and track your financial goals</p>
+        <div>
+          <h1>Financial Goals</h1>
+          <p>Set and track your financial goals</p>
+        </div>
+        <div>
+          <button>+ Create Goal</button>
+          <button>+ Add Contribution</button>
+          <button onClick={() => setShowGoalModal(true)}>+ Create Goal</button>
+        </div>
       </div>
-      <div className="addGoalForm">
+
+      {showGoalModal && (
+        <GoalFormModal
+          onClose={() => setShowGoalModal(false)}
+          onSave={addGoal}
+        />
+      )}
+      {/* <div className="addGoalForm">
         <div>
           <h2>Create New Goal</h2>
           <p>Set a new financial goal</p>
@@ -68,8 +98,8 @@ export const Goals = () => {
             <button>+ Create Goal</button>
           </div>
         </form>
-      </div>
-      <div className="addContributionForm">
+      </div> */}
+      {/* <div className="addContributionForm">
         <div>
           <h2>Add Contribution</h2>
           <p>Update progress on your goals</p>
@@ -111,8 +141,8 @@ export const Goals = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="goalTable">
+      </div> */}
+      {/* <div className="goalTable">
         <div>
           <h2>Your Goals</h2>
           <p>Track all your financial goals</p>
@@ -141,7 +171,7 @@ export const Goals = () => {
             </tbody>
           </table>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

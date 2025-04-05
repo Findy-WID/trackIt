@@ -109,6 +109,11 @@ export const Sidebar = () => {
             )}
           </div>
 
+          <Link to="/goals" className="navItem">
+            <i className="fas fa-money-bill"></i>
+            <span>Goals</span>
+          </Link>
+
           <div
             className={`expenseBtnContainer ${isOpen ? "visible" : "hidden"}`}
           >
