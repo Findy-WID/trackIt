@@ -30,47 +30,51 @@ const GoalFormModal = ({ onClose, onSave }) => {
         </div>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="goal name">Goal Name</label>
+            <label htmlFor="goalName">Goal Name</label>
             <input
-              type="text"
               name="goalName"
+              id="goalName"
+              type="text"
               placeholder="Rent, New car, Emergency fund, etc."
               onChange={handleChange}
               required
             />
           </div>
           <div>
-            <label htmlFor="target amount">Target Amount</label>
+            <label htmlFor="goalAmt">Target Amount</label>
             <input
-              type="number"
               name="goalAmt"
+              id="goalAmt"
+              type="number"
               placeholder="# 0.00"
               onChange={handleChange}
               required
             />
           </div>
           <div>
-            <label htmlFor="current amount">Current Amount (Optional)</label>
+            <label htmlFor="currentAmt">Current Amount (Optional)</label>
             <input
-              type="number"
               name="currentAmt"
+              id="currentAmt"
+              type="number"
               placeholder="# 0.00"
               onChange={handleChange}
             />
           </div>
           <div>
-            <label htmlFor="target date">Target Date</label>
+            <label htmlFor="targetDate">Target Date</label>
             <input
-              type="date"
               name="targetDate"
+              id="targetDate"
+              type="date"
               placeholder="Pick a date"
               onChange={handleChange}
               required
             />
           </div>
           <div>
-            <label htmlFor="goal category">Goal Category</label>
-            <select name="category" id="">
+            <label htmlFor="category">Goal Category</label>
+            <select name="category" id="category">
               <option>Select</option>
               <option>Savings</option>
               <option>Investment</option>

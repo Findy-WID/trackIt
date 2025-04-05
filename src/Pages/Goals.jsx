@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import GoalFormModal from "../Components/GoalFormModal";
 import ContributionModal from "../Components/ContributionModal";
 import GoalTable from "../Components/GoalTable";
+import GoalProgress from "../Components/GoalProgress";
 
 export const Goals = () => {
   const [goals, setGoals] = useState([]);
@@ -74,6 +75,7 @@ export const Goals = () => {
       )}
 
       <GoalTable goals={goals} onDelete={deleteGoal} />
+      {selectedGoal && <GoalProgress goal={selectedGoal} />}
     </div>
   );
 };

@@ -20,8 +20,10 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
         </div>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="select goals">Select Goal</label>
+            <label htmlFor="selectGoals">Select Goal</label>
             <select
+              name="selectGoals"
+              id="selectGoals"
               onChange={(event) => setGoalId(event.target.value)}
               required
             >
@@ -34,8 +36,10 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
             </select>
           </div>
           <div>
-            <label htmlFor="">Contribution Amount</label>
+            <label htmlFor="contributionAmt">Contribution Amount</label>
             <input
+              name="contributionAmt"
+              id="contributionAmt"
               type="number"
               placeholder="Contribution Amount"
               onChange={(event) => setAmount(event.target.value)}
