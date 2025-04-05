@@ -51,7 +51,6 @@ export const Goals = () => {
           <p>Set and track your financial goals</p>
         </div>
         <div>
-          <button>+ Create Goal</button>
           <button onClick={() => setShowContributionModal(true)}>
             + Add Contribution
           </button>

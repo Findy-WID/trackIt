@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const ContributionModal = ({ onClose, onAdd, goals }) => {
   const [goalId, setGoalId] = useState("");
@@ -11,9 +13,15 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
       onClose();
     }
   };
+
+  const handleOverlayClick = (event) => {
+    if (event.target.classList.contains("modalOverlay")) {
+      onClose();
+    }
+  };
   return (
-    <div className="contributionModal">
-      <div className="contributionModalContent">
+    <div className="modalOverlay" onClick={handleOverlayClick}>
+      <div className="modalContent">
         <div>
           <h2>Add Contribution</h2>
           <p>Update progress on your goals</p>
@@ -50,8 +58,8 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
             <button type="submit">Add Contribuion</button>
           </div>
         </form>
-        <button onClick={onClose} className="closeBtn">
-          Close
+        <button onClick={onClose} className="modalCloseBtn">
+          <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>
     </div>

@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "../Styles/Goals.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const GoalFormModal = ({ onClose, onSave }) => {
   const [goalData, setGoalData] = useState({
@@ -21,9 +24,15 @@ const GoalFormModal = ({ onClose, onSave }) => {
     onClose();
   };
 
+  const handleOverlayClick = (event) => {
+    if (event.target.classList.contains("modalOverlay")) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="goalModal">
-      <div className="goalModalContent">
+    <div className="modalOverlay" onClick={handleOverlayClick}>
+      <div className="modalContent">
         <div>
           <h2>Create New Goal</h2>
           <p>Set a new financial goal</p>
@@ -90,8 +99,8 @@ const GoalFormModal = ({ onClose, onSave }) => {
             <button type="submit">+ Create Goal</button>
           </div>
         </form>
-        <button onClick={onClose} className="closeBtn">
-          Close
+        <button onClick={onClose} className="modalCloseBtn">
+          <FontAwesomeIcon icon={faXmark} />
         </button>
       </div>
     </div>
