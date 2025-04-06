@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GoalFormModal from "../Components/GoalFormModal";
 import ContributionModal from "../Components/ContributionModal";
 import GoalTable from "../Components/GoalTable";
@@ -10,17 +10,20 @@ export const Goals = () => {
   const [showGoalModal, setShowGoalModal] = useState(false);
   const [showContributionModal, setShowContributionModal] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const savedGoals = JSON.parse(localStorage.getItem("goals")) || [];
     setGoals(savedGoals);
   }, []);
 
-  React.useEffect(() => {
-    localStorage.setItem("goals", JSON.stringify(goals));
+  useEffect(() => {
+    if (goals.length > 0) {
+      localStorage.setItem("goals", JSON.stringify(goals));
+    }
   }, [goals]);
 
   const addGoal = (goal) => {
-    setGoals((prev) => [...prev, goal]);
+    const newGoal = { ...goal, id: Date.now() };
+    setGoals((prevGoals) => [...prevGoals, newGoal]);
   };
 
   const addContribution = (goalId, contributionAmt) => {
@@ -31,7 +34,6 @@ export const Goals = () => {
       return goal;
     });
     setGoals(updatedGoals);
-    localStorage.setItem("goals", JSON.stringify(updatedGoals));
     setSelectedGoalId(goalId);
   };
 
