@@ -98,6 +98,12 @@
   opacity: 1;
 }
 
+.sidebarIcon {
+  margin-right: 1em;
+  text-align: center;
+  width: 20px;
+}
+
 .expenseBtnContainer {
   position: absolute;
   bottom: 20px;
@@ -168,27 +174,48 @@
 }
 
 .dropdown-menu {
-  background-color: #f8f9fa;
-  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
   border-left: 2px solid #4caf50;
   width: calc(100% - 20px);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.sidebar.open .dropdown-menu {
+  max-height: 500px;
 }
 
 .dropdown-item {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
-  color: #333;
+  padding: 0.5em 0.75em;
+  color: #fefefe;
   text-decoration: none;
   transition: background-color 0.3s;
+  font-size: 1rem;
+  border-radius: 0.313rem;
 }
 
 .dropdown-item:hover {
-  background-color: #e9ecef;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-.dropdown-item i {
-  margin-right: 10px;
+.dropdown-item .sidebarIcon {
+  margin-left: 0.63em;
+}
+
+.sidebarIcon,
+.dropdown-item span {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar.open .sidebarIcon,
+.sidebar.open .dropdown-item span {
+  opacity: 1;
 }
 
 @keyframes slideDown {

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import "../Styles/Goals.css";
 
 const ContributionModal = ({ onClose, onAdd, goals }) => {
   const [goalId, setGoalId] = useState("");
@@ -24,7 +25,7 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
       <div className="modalContent">
         <div>
           <h2>Add Contribution</h2>
-          <p>Update progress on your goals</p>
+          <p className="goalSubtext">Update progress on your goals</p>
         </div>
         <form onSubmit={handleSubmit}>
           <div>
@@ -34,6 +35,7 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
               id="selectGoals"
               onChange={(event) => setGoalId(event.target.value)}
               required
+              className="inputField"
             >
               <option value="">Select Goal</option>
               {goals.map((goal) => (
@@ -52,10 +54,13 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
               placeholder="Contribution Amount"
               onChange={(event) => setAmount(event.target.value)}
               required
+              className="inputField"
             />
           </div>
           <div>
-            <button type="submit">Add Contribuion</button>
+            <button type="submit" className="inputField addGoalBtn">
+              Add Contribuion
+            </button>
           </div>
         </form>
         <button onClick={onClose} className="modalCloseBtn">

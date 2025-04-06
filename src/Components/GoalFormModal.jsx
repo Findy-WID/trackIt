@@ -35,7 +35,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
       <div className="modalContent">
         <div>
           <h2>Create New Goal</h2>
-          <p>Set a new financial goal</p>
+          <p className="goalSubtext">Set a new financial goal</p>
         </div>
         <form onSubmit={handleSubmit}>
           <div>
@@ -47,6 +47,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
               placeholder="Rent, New car, Emergency fund, etc."
               onChange={handleChange}
               required
+              className="inputField"
             />
           </div>
           <div>
@@ -58,6 +59,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
               placeholder="# 0.00"
               onChange={handleChange}
               required
+              className="inputField"
             />
           </div>
           <div>
@@ -68,6 +70,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
               type="number"
               placeholder="# 0.00"
               onChange={handleChange}
+              className="inputField"
             />
           </div>
           <div>
@@ -79,6 +82,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
               placeholder="Pick a date"
               onChange={handleChange}
               required
+              className="inputField"
             />
           </div>
           <div>
@@ -88,6 +92,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
               id="category"
               value={goalData.category}
               onChange={handleChange}
+              className="inputField"
             >
               <option>Select</option>
               <option>Savings</option>
@@ -101,7 +106,9 @@ const GoalFormModal = ({ onClose, onSave }) => {
             </select>
           </div>
           <div>
-            <button type="submit">+ Create Goal</button>
+            <button type="submit" className="inputField addGoalBtn">
+              + Create Goal
+            </button>
           </div>
         </form>
         <button onClick={onClose} className="modalCloseBtn">

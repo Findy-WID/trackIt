@@ -44,16 +44,21 @@ export const Goals = () => {
 
   return (
     <div className="goalPage">
-      <div>
+      <div className="goalHeader">
         <div>
           <h1>Financial Goals</h1>
           <p>Set and track your financial goals</p>
         </div>
-        <div>
-          <button onClick={() => setShowContributionModal(true)}>
+        <div className="goalBtns">
+          <button
+            className="goalAddBtn"
+            onClick={() => setShowContributionModal(true)}
+          >
             + Add Contribution
           </button>
-          <button onClick={() => setShowGoalModal(true)}>+ Create Goal</button>
+          <button className="goalAddBtn" onClick={() => setShowGoalModal(true)}>
+            + Create Goal
+          </button>
         </div>
       </div>
 

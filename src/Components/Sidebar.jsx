@@ -4,7 +4,16 @@ import Analysis from "../Pages/Analysis";
 // import "../Styles/Sidebar.css";
 import { UserContext } from "../Components/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTachometerAlt,
+  faMoneyBillWave,
+  faBullseye,
+  faChartLine,
+  faTable,
+  faXmark,
+  faChevronDown,
+  faCalendarDay,
+} from "@fortawesome/free-solid-svg-icons";
 import "../Styles/sidebar/sidebar.css";
 import { ExpenseForm } from "./ExpenseForm";
 import AddExpenseButton from "./AddExpenseButton";
@@ -58,19 +67,19 @@ export const Sidebar = () => {
 
         <nav className="sideNavSection">
           <Link to="/" className="navItem">
-            <i className="fas fa-home"></i>
+            <FontAwesomeIcon icon={faTachometerAlt} className="sidebarIcon" />
             <span>Dashboard</span>
           </Link>
 
           <Link to="/expenses" className="navItem">
-            <i className="fas fa-money-bill"></i>
+            <FontAwesomeIcon icon={faMoneyBillWave} className="sidebarIcon" />
             <span>Expenses</span>
           </Link>
 
           <Link to="/analysis" className="navItem">
             {" "}
             {/* Changed from /Analysis to /analysis */}
-            <i className="fas fa-chart-pie"></i>
+            <FontAwesomeIcon icon={faChartLine} className="sidebarIcon" />
             <span>Analytics</span>
           </Link>
 
@@ -80,29 +89,36 @@ export const Sidebar = () => {
               onClick={() => setIsExpenseDropdown(!isExpenseDropdown)}
               style={{ cursor: "pointer" }}
             >
-              <i className="fas fa-table"></i>
+              <FontAwesomeIcon icon={faTable} className="sidebarIcon" />
               <span style={{ marginRight: "10px" }}>Expense Table</span>
-              <i
-                className={`fas fa-chevron-${
+              <FontAwesomeIcon
+                icon={faChevronDown}
+                className={`sidebarIcon-${
                   isExpenseDropdown ? "down" : "right"
                 }`}
                 style={{ fontSize: "12px" }}
               />
             </div>
 
-            {isExpenseDropdown && (
+            {isExpenseDropdown && isOpen && (
               <div className="dropdown-menu">
                 <Link to="/expense-table/all" className="dropdown-item">
-                  <i className="fas fa-list"></i>
+                  <FontAwesomeIcon icon={faTable} className="sidebarIcon" />
                   <span>All Expenses</span>
                 </Link>
                 <Link to="/expense-table/daily" className="dropdown-item">
-                  <i className="fas fa-calendar-day"></i>
+                  <FontAwesomeIcon
+                    icon={faCalendarDay}
+                    className="sidebarIcon"
+                  />
                   <span>Daily Expenses</span>
                 </Link>
 
                 <Link to="/expense-table/monthly" className="dropdown-item">
-                  <i className="fas fa-calendar-day"></i>
+                  <FontAwesomeIcon
+                    icon={faCalendarDay}
+                    className="sidebarIcon"
+                  />
                   <span>Monthly Expenses</span>
                 </Link>
               </div>
@@ -110,7 +126,7 @@ export const Sidebar = () => {
           </div>
 
           <Link to="/goals" className="navItem">
-            <i className="fas fa-money-bill"></i>
+            <FontAwesomeIcon icon={faBullseye} className="sidebarIcon" />
             <span>Goals</span>
           </Link>
 

@@ -6,7 +6,7 @@ const GoalTable = ({ goals, onDelete }) => {
       <div className="goalTable">
         <div>
           <h2>Your Goals</h2>
-          <p>Track all your financial goals</p>
+          <p className="goalSubtext">Track all your financial goals</p>
         </div>
         <div>
           <table>
