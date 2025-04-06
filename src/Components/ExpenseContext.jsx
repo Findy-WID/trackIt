@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect, useContext } from "react";
-
 export const ExpenseContext = createContext();
 
 export const ExpenseProvider = ({ children }) => {
@@ -11,15 +10,28 @@ export const ExpenseProvider = ({ children }) => {
 
     const addExpense = (newExpense) => {
         setExpenses((prev) => {
-            const updatedExpenses = [...prev, newExpense];
+            // Add a unique ID to the new expense
+            const expenseWithId = {
+                ...newExpense,
+                id: Date.now()  // Use timestamp as a unique ID
+            };
+            const updatedExpenses = [...prev, expenseWithId];
             localStorage.setItem("expenses", JSON.stringify(updatedExpenses)); 
             console.log("Updated Expenses:", updatedExpenses);
             return updatedExpenses;
         });
     };
 
+    const deleteExpense = (id) => {
+        setExpenses((prev) => {
+            const updatedExpenses = prev.filter(expense => expense.id !== id);
+            localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
+            return updatedExpenses;
+        });
+    };
+
     return (
-        <ExpenseContext.Provider value={{ expenses, addExpense }}>
+        <ExpenseContext.Provider value={{ expenses, addExpense, deleteExpense }}>
             {children}
         </ExpenseContext.Provider>
     );
@@ -29,3 +41,4 @@ export const ExpenseProvider = ({ children }) => {
 export const useExpenseContext = () => {
     return useContext(ExpenseContext);
 };
+
