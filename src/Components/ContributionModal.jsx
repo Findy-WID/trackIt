@@ -6,10 +6,10 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
   const [goalId, setGoalId] = useState("");
   const [amount, setAmount] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (goalId && amount) {
-      onAdd(goalId, Number(amount));
+      await onAdd(goalId, Number(amount));
       onClose();
     }
   };

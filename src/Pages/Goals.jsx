@@ -23,16 +23,15 @@ export const Goals = () => {
     setGoals((prev) => [...prev, goal]);
   };
 
-  const addContribution = (goalId, amount) => {
-    const updatedGoals = goals.map((goal) =>
-      goal.id === goalId
-        ? {
-            ...goal,
-            currentAmt: Number(goal.currentAmt || 0) + Number(amount),
-          }
-        : goal
-    );
+  const addContribution = (goalId, contributionAmt) => {
+    const updatedGoals = goals.map((goal) => {
+      if (goal.id === goalId) {
+        goal.currentAmt += contributionAmt;
+      }
+      return goal;
+    });
     setGoals(updatedGoals);
+    localStorage.setItem("goals", JSON.stringify(updatedGoals));
     setSelectedGoalId(goalId);
   };
 
@@ -70,6 +69,7 @@ export const Goals = () => {
           onClose={() => setShowContributionModal(false)}
           goals={goals}
           onAdd={addContribution}
+          goalId={selectedGoalId}
         />
       )}
 

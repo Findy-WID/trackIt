@@ -8,7 +8,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
     id: Date.now(),
     goalName: "",
     goalAmt: "",
-    currentAmt: "",
+    currentAmt: 0,
     targetDate: "",
     category: "Select",
   });
@@ -83,7 +83,12 @@ const GoalFormModal = ({ onClose, onSave }) => {
           </div>
           <div>
             <label htmlFor="category">Goal Category</label>
-            <select name="category" id="category">
+            <select
+              name="category"
+              id="category"
+              value={goalData.category}
+              onChange={handleChange}
+            >
               <option>Select</option>
               <option>Savings</option>
               <option>Investment</option>
