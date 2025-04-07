@@ -1,9 +1,9 @@
-import { ExpenseProvider } from './Components/ExpenseContext';
+import { ExpenseProvider } from "./Components/ExpenseContext";
 import { BrowserRouter as Router } from "react-router-dom";
-import AppRouter from './Router/AppRouter';
-import { ToastContainer, Zoom } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import './Styles/App.css';
+import AppRouter from "./Router/AppRouter";
+import { ToastContainer, Zoom } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./Styles/App.css";
 
 function App() {
   return (
