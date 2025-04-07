@@ -40,7 +40,7 @@ export const ExpenseProvider = ({ children }) => {
     );
 };
 
-// Create the custom hook
+// Creating custom hook
 export const useExpenseContext = () => {
     return useContext(ExpenseContext);
 };

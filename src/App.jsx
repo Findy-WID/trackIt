@@ -1,4 +1,5 @@
 import React from "react";
+import AppProviders from "./Providers/AppProviders";
 import { ExpenseProvider } from "./Context/ExpenseContext";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRouter from "./Router/AppRouter";
@@ -10,8 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router className="App">
-      <UserProvider>
-        <ExpenseProvider>
+        <AppProviders>
           <ToastContainer
             position="top-center"
             autoClose={false}
@@ -24,8 +24,7 @@ function App() {
             transition={Zoom}
           />
           <AppRouter />
-        </ExpenseProvider>
-      </UserProvider>
+        </AppProviders>
     </Router>
   );
 }
