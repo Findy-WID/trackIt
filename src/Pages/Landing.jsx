@@ -53,7 +53,7 @@ const Landing = () => {
     <div className="landing-page">
       {/* Add Navigation Bar */}
       <nav className="landing-nav">
-        <div className="nav-logo" >
+        <div className="nav-logo" style={{ 'background': 'rgba(44, 24, 70, 0.8)' }} >
         <div className='nav-logo-container'>
           <Link to="/">
             <img src={Logo} className="logo" alt="TrackIt Logo" style={{opacity: 1}} />
@@ -102,7 +102,7 @@ const Landing = () => {
       </div>
 
       <div className="landing-content">
-        <h1 style={{color: "#552C88"}}>Welcome to trackIt</h1>
+        <h1 style={{color: "#552C88"}}>Welcome to TrackIt</h1>
         <p>Your Personal Expense Tracking Solution</p>
         <div className="cta-buttons">
           <Link to="/signup" className="get-started-btn">Get Started</Link>

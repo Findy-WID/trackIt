@@ -1,58 +1,61 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import '../Styles/Auth.css';
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import "../Styles/Auth.css";
+import { UserContext } from "../Components/UserContext";
 
 const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const {updateUser} = useContext(UserContext)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
-    setError(''); // Clear error when user types
+    setError(""); // Clear error when user types
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setError('');
+    setError("");
 
     // Basic validation
     if (!formData.email || !formData.password) {
-      setError('All fields are required');
+      setError("All fields are required");
       setIsLoading(false);
       return;
     }
 
     try {
       // Get users from localStorage
-      const users = JSON.parse(localStorage.getItem('users') || '[]');
-      
+      const users = JSON.parse(localStorage.getItem("users") || "[]");
+
       // Find user with matching email and password
-      const user = users.find(u => 
-        u.email === formData.email && 
-        u.password === formData.password
+      const user = users.find(
+        (u) => u.email === formData.email && u.password === formData.password
       );
 
       if (user) {
         // Store current user session
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        
+        localStorage.setItem("currentUser", JSON.stringify(user));
+
+        updateUser(user);
+
         // Redirect to home page
-        navigate('/home');
+        navigate("/home");
       } else {
-        setError('Invalid email or password');
+        setError("Invalid email or password");
       }
     } catch (err) {
-      setError('An error occurred. Please try again.');
+      setError("An error occurred. Please try again.");
     } finally {
       setIsLoading(false);
     }
@@ -63,7 +66,6 @@ const Login = () => {
       <div className="auth-card">
         <h2>Welcome Back</h2>
         {error && <div className="error-message">{error}</div>}
-        
         <form onSubmit={handleSubmit} className="auth-form">
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -93,12 +95,12 @@ const Login = () => {
             </div>
           </div>
 
-          <button 
-            type="submit" 
-            className={`auth-button ${isLoading ? 'loading' : ''}`}
+          <button
+            type="submit"
+            className={`auth-button ${isLoading ? "loading" : ""}`}
             disabled={isLoading}
           >
-            {isLoading ? 'Logging in...' : 'Login'}
+            {isLoading ? "Logging in..." : "Login"}
           </button>
 
           <div className="auth-links">
@@ -112,4 +114,4 @@ const Login = () => {
   );
 };
 
-export default Login; 
+export default Login;

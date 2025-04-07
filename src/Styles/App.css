@@ -89,7 +89,8 @@ h2 {
 }
 
 /* Input Fields */
-input, select {
+input,
+select {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -190,6 +191,18 @@ label {
   margin-top: 5px;
 }
 
+.App {
+  display: flex;
+  min-height: 100vh;
+}
 
+.contentWrapper {
+  flex-grow: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  margin-left: 110px;
+}
 
-  
+.sidebar.open ~ .contentWrapper {
+  margin-left: 300px;
+}

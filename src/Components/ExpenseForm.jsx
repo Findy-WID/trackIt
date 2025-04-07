@@ -104,5 +104,4 @@ export const ExpenseForm = ({ closeForm }) => {
     </div>
   );
 };
-
 export default ExpenseForm
