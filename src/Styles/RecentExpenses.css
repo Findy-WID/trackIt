@@ -1,0 +1,21 @@
+.animate-slide {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #333;
+    animation: slide 3s ease-in-out infinite; /* Slide from left to right */
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(-10px); /* Start off-screen to the left */
+    }
+    50% {
+      transform: translateX(10px); /* Move to the right */
+    }
+    100% {
+      transform: translateX(-10px); /* Return off-screen to the left */
+    }
+  }
+  
+  
+  
