@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState, useContext } from 'react';
-import { ExpenseContext } from './ExpenseContext';
+import React from "react";
+import { useState, useContext } from "react";
+import { ExpenseContext } from "../Context/ExpenseContext";
 // import '../Styles/ExpenseForm.css'
-
 
 export const ExpenseForm = ({ closeForm }) => {
   const { addExpense } = useContext(ExpenseContext);
@@ -11,7 +10,7 @@ export const ExpenseForm = ({ closeForm }) => {
     amount: "",
     date: "",
     desc: "",
-    category: ""
+    category: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -94,14 +93,27 @@ export const ExpenseForm = ({ closeForm }) => {
           <option value="Debt">Debt</option>
           <option value="Others">Others</option>
         </select>
-        {errors.category && <span className="text-red-400">{errors.category}</span>}
+        {errors.category && (
+          <span className="text-red-400">{errors.category}</span>
+        )}
 
         <div className="flex gap-4 mt-4">
-          <button type="submit" className="bg-yellow-400 text-black px-4 py-2 rounded">Save</button>
-          <button type="button" onClick={closeForm} className="bg-yellow-400 text-black px-4 py-2 rounded">Cancel</button>
+          <button
+            type="submit"
+            className="bg-yellow-400 text-black px-4 py-2 rounded"
+          >
+            Save
+          </button>
+          <button
+            type="button"
+            onClick={closeForm}
+            className="bg-yellow-400 text-black px-4 py-2 rounded"
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </div>
   );
 };
-export default ExpenseForm
+export default ExpenseForm;

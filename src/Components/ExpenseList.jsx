@@ -1,5 +1,6 @@
+import React from "react";
 import { useContext, useState } from "react";
-import { ExpenseContext } from "./ExpenseContext";
+import { ExpenseContext } from "../Context/ExpenseContext";
 import "../Styles/App.css";
 
 export const ExpenseList = () => {
@@ -19,16 +20,27 @@ export const ExpenseList = () => {
           <div key={index} className="expense-card">
             {/* Clickable Title with Arrow */}
             <h3 onClick={() => toggleExpand(index)} className="expense-title">
-              <span className="arrow">{expandedIndex === index ? "▼" : "▶"}</span> {expense.title}
+              <span className="arrow">
+                {expandedIndex === index ? "▼" : "▶"}
+              </span>{" "}
+              {expense.title}
             </h3>
 
             {/* Show full details if expanded */}
             {expandedIndex === index && (
               <div className="expense-details">
-                <p><strong>Amount:</strong> {expense.amount}</p>
-                <p><strong>Date:</strong> {expense.date}</p>
-                <p><strong>Category:</strong> {expense.category}</p>
-                <p><strong>Description:</strong> {expense.desc}</p>
+                <p>
+                  <strong>Amount:</strong> {expense.amount}
+                </p>
+                <p>
+                  <strong>Date:</strong> {expense.date}
+                </p>
+                <p>
+                  <strong>Category:</strong> {expense.category}
+                </p>
+                <p>
+                  <strong>Description:</strong> {expense.desc}
+                </p>
               </div>
             )}
           </div>
@@ -37,3 +49,4 @@ export const ExpenseList = () => {
     </div>
   );
 };
+export default ExpenseList;

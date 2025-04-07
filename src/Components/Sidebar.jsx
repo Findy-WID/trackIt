@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Analysis from "../Pages/Analysis";
 // import "../Styles/Sidebar.css";
-import { UserContext } from "../Components/UserContext";
+import { UserContext } from "../Context/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTachometerAlt,
@@ -44,7 +44,7 @@ export const Sidebar = () => {
     console.log("Logging out...");
     updateUser({ firstName: "" });
     localStorage.removeItem("currentUser");
-    navigate("/login");
+    navigate("/");
   };
 
   return (
@@ -66,7 +66,7 @@ export const Sidebar = () => {
         </div>
 
         <nav className="sideNavSection">
-          <Link to="/" className="navItem">
+          <Link to="/home" className="navItem">
             <FontAwesomeIcon icon={faTachometerAlt} className="sidebarIcon" />
             <span>Dashboard</span>
           </Link>

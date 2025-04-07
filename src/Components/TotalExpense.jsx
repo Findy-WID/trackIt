@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ExpenseContext } from "./ExpenseContext";
+import { ExpenseContext } from "../Context/ExpenseContext";
 import { GrMoney } from "react-icons/gr";
 
 const TotalExpenses = () => {
@@ -7,7 +7,10 @@ const TotalExpenses = () => {
 
   // Calculate the total expenses, ensuring expense.amount is valid
   const total = expenses.reduce((acc, expense) => {
-    const amount = typeof expense.amount === "number" && !isNaN(expense.amount) ? expense.amount : 0;
+    const amount =
+      typeof expense.amount === "number" && !isNaN(expense.amount)
+        ? expense.amount
+        : 0;
     return acc + amount;
   }, 0);
 

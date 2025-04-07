@@ -17,6 +17,7 @@ import { Sidebar } from "../Components/Sidebar";
 import { Link } from "react-router-dom";
 import SignUp from "../Pages/SignUp";
 import Login from "../Pages/Login";
+import Expenses from "../Pages/Expenses";
 
 function AppRouter() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function AppRouter() {
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/expenses" element={<Expenses />} />
           <Route path="/analysis" element={<ExpenseAnalytics />} />
           <Route path="/goals" element={<Goals />} />
           <Route

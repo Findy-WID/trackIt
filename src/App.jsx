@@ -1,18 +1,17 @@
-import React from 'react';
-import { ExpenseProvider } from "./Components/ExpenseContext";
+import React from "react";
+import { ExpenseProvider } from "./Context/ExpenseContext";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppRouter from "./Router/AppRouter";
+import "./Styles/App.css";
+import { UserProvider } from "./Context/UserContext";
 import { ToastContainer, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./Styles/App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Router>
+    <Router className="App">
+      <UserProvider>
         <ExpenseProvider>
-          <AppRouter />
-          {/* ToastContainer placed here to be available throughout the app */}
           <ToastContainer
             position="top-center"
             autoClose={false}
@@ -24,9 +23,10 @@ function App() {
             theme="light"
             transition={Zoom}
           />
+          <AppRouter />
         </ExpenseProvider>
-      </Router>
-    </div>
+      </UserProvider>
+    </Router>
   );
 }
 

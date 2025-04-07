@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Styles/Auth.css";
-import { UserContext } from "../Components/UserContext";
+import { UserContext } from "../Context/UserContext";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const Login = () => {
   });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const {updateUser} = useContext(UserContext)
+  const { updateUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -1,28 +1,31 @@
-import React, { useContext, useState } from 'react';
-import { ExpenseContext } from '../Components/ExpenseContext';
-import '../Styles/Table.css';
+import React, { useContext, useState } from "react";
+import { ExpenseContext } from "../Context/ExpenseContext";
+import "../Styles/Table.css";
 
 const Monthly = () => {
   const { expenses } = useContext(ExpenseContext);
-  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedMonth, setSelectedMonth] = useState("");
 
   // Filter expenses for selected month
   const monthlyExpenses = selectedMonth
-    ? expenses.filter(expense => {
+    ? expenses.filter((expense) => {
         const expenseDate = new Date(expense.date);
-        const expenseMonth = `${expenseDate.getFullYear()}-${String(expenseDate.getMonth() + 1).padStart(2, '0')}`;
+        const expenseMonth = `${expenseDate.getFullYear()}-${String(
+          expenseDate.getMonth() + 1
+        ).padStart(2, "0")}`;
         return expenseMonth === selectedMonth;
       })
     : [];
 
   // Calculate monthly total
-  const monthlyTotal = monthlyExpenses.reduce((total, expense) => 
-    total + Number(expense.amount), 0
+  const monthlyTotal = monthlyExpenses.reduce(
+    (total, expense) => total + Number(expense.amount),
+    0
   );
 
   // Group expenses by category for the selected month
   const categoryTotals = monthlyExpenses.reduce((acc, expense) => {
-    const category = expense.category || 'Uncategorized';
+    const category = expense.category || "Uncategorized";
     acc[category] = (acc[category] || 0) + Number(expense.amount);
     return acc;
   }, {});
@@ -42,17 +45,23 @@ const Monthly = () => {
         {selectedMonth && (
           <div className="monthly-summary">
             <div className="monthly-total">
-              Total for {new Date(selectedMonth + '-01').toLocaleDateString(undefined, { year: 'numeric', month: 'long' })}: 
-              <span className="amount">N{monthlyTotal.toFixed(2)}</span>
+              Total for{" "}
+              {new Date(selectedMonth + "-01").toLocaleDateString(undefined, {
+                year: "numeric",
+                month: "long",
+              })}
+              :<span className="amount">N{monthlyTotal.toFixed(2)}</span>
             </div>
-            
+
             <div className="category-summary">
               <h3>Category Breakdown:</h3>
               <div className="category-grid">
                 {Object.entries(categoryTotals).map(([category, amount]) => (
                   <div key={category} className="category-item">
                     <span className="category-name">{category}</span>
-                    <span className="category-amount">N{amount.toFixed(2)}</span>
+                    <span className="category-amount">
+                      N{amount.toFixed(2)}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -77,7 +86,11 @@ const Monthly = () => {
               {monthlyExpenses.length === 0 ? (
                 <tr>
                   <td colSpan="5" className="no-data">
-                    No expenses found for {new Date(selectedMonth + '-01').toLocaleDateString(undefined, { year: 'numeric', month: 'long' })}
+                    No expenses found for{" "}
+                    {new Date(selectedMonth + "-01").toLocaleDateString(
+                      undefined,
+                      { year: "numeric", month: "long" }
+                    )}
                   </td>
                 </tr>
               ) : (
@@ -88,8 +101,8 @@ const Monthly = () => {
                       <td>{new Date(expense.date).toLocaleDateString()}</td>
                       <td>{expense.title}</td>
                       <td>N{Number(expense.amount).toFixed(2)}</td>
-                      <td>{expense.category || 'Uncategorized'}</td>
-                      <td>{expense.desc || '-'}</td>
+                      <td>{expense.category || "Uncategorized"}</td>
+                      <td>{expense.desc || "-"}</td>
                     </tr>
                   ))
               )}
