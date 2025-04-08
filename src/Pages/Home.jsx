@@ -4,6 +4,7 @@ import { ExpenseForm } from "../Components/ExpenseForm";
 import RecentExpenses from "../Components/RecentExpenses";
 import TotalExpense from "../Components/TotalExpense"
 import ActiveGoals from "../Components/ActiveGoals";
+import ExpenseVsSavingsChart from '../Components/ExpensesVsSavings';
 import "../Styles/App.css";
 
 export const Home = () => {
@@ -21,7 +22,7 @@ export const Home = () => {
     </div>
     <div className="bg-purple-800 text-white rounded-xl p-6 shadow-lg">
       {/* Placeholder for line chart or other data */}
-      <p>Chart or other data goes here</p>
+      <ExpenseVsSavingsChart />
     </div>
   </div>
 

@@ -5,7 +5,6 @@ import Analysis from "../Pages/Analysis";
 import { UserContext } from "../Context/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faTachometerAlt,
   faMoneyBillWave,
   faBullseye,
   faChartLine,
@@ -14,6 +13,7 @@ import {
   faChevronDown,
   faCalendarDay,
 } from "@fortawesome/free-solid-svg-icons";
+import { FaHome, FaMoneyCheck } from "react-icons/fa";
 import "../Styles/sidebar/sidebar.css";
 import { ExpenseForm } from "./ExpenseForm";
 import AddExpenseButton from "./AddExpenseButton";
@@ -67,12 +67,12 @@ export const Sidebar = () => {
 
         <nav className="sideNavSection">
           <Link to="/home" className="navItem">
-            <FontAwesomeIcon icon={faTachometerAlt} className="sidebarIcon" />
+            <FaHome className="sidebarIcon" />
             <span>Dashboard</span>
           </Link>
 
           <Link to="/expenses" className="navItem">
-            <FontAwesomeIcon icon={faMoneyBillWave} className="sidebarIcon" />
+            <FaMoneyCheck className="sidebarIcon" />
             <span>Expenses</span>
           </Link>
 
