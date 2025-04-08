@@ -59,7 +59,7 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
           </div>
           <div>
             <button type="submit" className="inputField addGoalBtn">
-              Add Contribuion
+              Add Contribution
             </button>
           </div>
         </form>

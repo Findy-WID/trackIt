@@ -3,43 +3,22 @@ import GoalFormModal from "../Components/GoalFormModal";
 import ContributionModal from "../Components/ContributionModal";
 import GoalTable from "../Components/GoalTable";
 import GoalProgress from "../Components/GoalProgress";
+import { useGoalsContext } from "../Context/GoalsContext";
 
 export const Goals = () => {
-  const [goals, setGoals] = useState([]);
+  const { createGoal, goals, addContribution, deleteGoal } = useGoalsContext();
+
   const [selectedGoalId, setSelectedGoalId] = useState(null);
   const [showGoalModal, setShowGoalModal] = useState(false);
   const [showContributionModal, setShowContributionModal] = useState(false);
 
-  useEffect(() => {
-    const savedGoals = JSON.parse(localStorage.getItem("goals")) || [];
-    setGoals(savedGoals);
-  }, []);
-
-  useEffect(() => {
-    if (goals.length > 0) {
-      localStorage.setItem("goals", JSON.stringify(goals));
-    }
-  }, [goals]);
-
   const addGoal = (goal) => {
-    const newGoal = { ...goal, id: Date.now() };
-    setGoals((prevGoals) => [...prevGoals, newGoal]);
-  };
-
-  const addContribution = (goalId, contributionAmt) => {
-    const updatedGoals = goals.map((goal) => {
-      if (goal.id === goalId) {
-        goal.currentAmt += contributionAmt;
-      }
-      return goal;
-    });
-    setGoals(updatedGoals);
-    setSelectedGoalId(goalId);
-  };
-
-  const deleteGoal = (goalId) => {
-    const updatedGoals = goals.filter((goal) => goal.id !== goalId);
-    setGoals(updatedGoals);
+    const newGoal = {
+      ...goal,
+      currentAmt: Number(goal.currentAmt) || 0,
+      goalAmt: Number(goal.goalAmt) || 0,
+    };
+    createGoal(newGoal);
   };
 
   const selectedGoal = goals.find((goal) => goal.id === selectedGoalId);
