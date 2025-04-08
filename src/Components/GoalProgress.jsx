@@ -13,7 +13,7 @@ const GoalProgress = ({ goal }) => {
           <div className="filled" style={{ width: `${progress}%` }}></div>
         </div>
         <p>
-          {progress.toFixed(1)}% Complete (#{goal.currentAmt} / #{goal.goalAmt})
+          {progress.toFixed(1)}% Complete (${goal.currentAmt} / ${goal.goalAmt})
         </p>
       </div>
     </div>

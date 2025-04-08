@@ -6,7 +6,8 @@ import GoalProgress from "../Components/GoalProgress";
 import { useGoalsContext } from "../Context/GoalsContext";
 
 export const Goals = () => {
-  const { createGoal, goals, addContribution, deleteGoal } = useGoalsContext();
+  const { createGoal, goals, addContribution, deleteGoal, toggleComplete } =
+    useGoalsContext();
 
   const [selectedGoalId, setSelectedGoalId] = useState(null);
   const [showGoalModal, setShowGoalModal] = useState(false);
@@ -63,6 +64,7 @@ export const Goals = () => {
         goals={goals}
         onDelete={deleteGoal}
         onSelectGoal={(id) => setSelectedGoalId(id)}
+        onToggleComplete={toggleComplete}
       />
       {selectedGoal && <GoalProgress goal={selectedGoal} />}
     </div>

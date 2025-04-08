@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const GoalTable = ({ goals, onDelete, onSelectGoal }) => {
+const GoalTable = ({ goals, onDelete, onSelectGoal, onToggleComplete }) => {
   return (
     <div>
       <div className="goalTable">
@@ -20,6 +20,7 @@ const GoalTable = ({ goals, onDelete, onSelectGoal }) => {
                 <th>Progress</th>
                 <th>Amount</th>
                 <th>Action</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -32,7 +33,7 @@ const GoalTable = ({ goals, onDelete, onSelectGoal }) => {
                     <td>{goal.targetDate}</td>
                     <td>{progress.toFixed(0)}%</td>
                     <td>
-                      #{goal.currentAmt || 0} / #{goal.goalAmt}
+                      ${goal.currentAmt || 0} / ${goal.goalAmt}
                     </td>
                     <td>
                       <button
@@ -44,6 +45,18 @@ const GoalTable = ({ goals, onDelete, onSelectGoal }) => {
                       >
                         <FontAwesomeIcon icon={faTrash} />
                       </button>
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        checked={goal.completed}
+                        onChange={() => onToggleComplete(goal.id)}
+                        title={
+                          goal.completed
+                            ? "Mark as active"
+                            : "Mark as completed"
+                        }
+                      />
                     </td>
                   </tr>
                 );
