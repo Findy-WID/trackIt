@@ -56,7 +56,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
               name="goalAmt"
               id="goalAmt"
               type="number"
-              placeholder="# 0.00"
+              placeholder="$ 0.00"
               onChange={handleChange}
               required
               className="inputField"
@@ -68,7 +68,7 @@ const GoalFormModal = ({ onClose, onSave }) => {
               name="currentAmt"
               id="currentAmt"
               type="number"
-              placeholder="# 0.00"
+              placeholder="$ 0.00"
               onChange={handleChange}
               className="inputField"
             />

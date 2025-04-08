@@ -105,3 +105,11 @@
   margin-top: 1rem;
   border-collapse: collapse;
 }
+
+.deleteBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: red;
+  font-size: 1rem;
+}

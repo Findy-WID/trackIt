@@ -59,7 +59,11 @@ export const Goals = () => {
         />
       )}
 
-      <GoalTable goals={goals} onDelete={deleteGoal} />
+      <GoalTable
+        goals={goals}
+        onDelete={deleteGoal}
+        onSelectGoal={(id) => setSelectedGoalId(id)}
+      />
       {selectedGoal && <GoalProgress goal={selectedGoal} />}
     </div>
   );

@@ -1,6 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const GoalTable = ({ goals, onDelete }) => {
+const GoalTable = ({ goals, onDelete, onSelectGoal }) => {
   return (
     <div>
       <div className="goalTable">
@@ -24,7 +26,7 @@ const GoalTable = ({ goals, onDelete }) => {
               {goals.map((goal) => {
                 const progress = ((goal.currentAmt || 0) / goal.goalAmt) * 100;
                 return (
-                  <tr key={goal.id}>
+                  <tr key={goal.id} onClick={() => onSelectGoal(goal.id)}>
                     <td>{goal.goalName}</td>
                     <td>{goal.category}</td>
                     <td>{goal.targetDate}</td>
@@ -33,7 +35,15 @@ const GoalTable = ({ goals, onDelete }) => {
                       #{goal.currentAmt || 0} / #{goal.goalAmt}
                     </td>
                     <td>
-                      <button onClick={() => onDelete(goal.id)}>🗑</button>
+                      <button
+                        className="deleteBtn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onDelete(goal.id);
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
                     </td>
                   </tr>
                 );
