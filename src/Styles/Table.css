@@ -286,3 +286,53 @@ tr:hover {
 .delete-btn:hover {
   background-color: #cc0000;
 }
+
+/* Add these styles */
+input {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 90%;
+}
+
+.edit-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.save-btn {
+  background-color: #2196F3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 90%;
+  background-color: white;
+  cursor: pointer;
+}
+
+select:focus {
+  outline: none;
+  border-color: #4CAF50;
+}

@@ -27,14 +27,20 @@ export const Goals = () => {
   const selectedGoal = goals.find((goal) => goal.id === selectedGoalId);
 
   const handleDeleteGoal = (goalId) => {
-    toast.warn(
+    const goalToDelete = goals.find((goal) => goal.id === goalId);
+
+    toast.warning(
       <div>
-        <p>Are you sure you want to delete this goal?</p>
+        <p>Are you sure you want to delete "{goalToDelete.title}" goal?</p>
         <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
           <button 
             onClick={() => {
               deleteGoal(goalId);
               toast.dismiss();
+              toast.success(`"${goalToDelete.title}" deleted successfully!`, {
+                position: "top-right",
+                autoClose: 3000,
+              });
             }}
             style={{ padding: '5px 10px', background: '#ff4444', color: 'white', border: 'none', borderRadius: '4px' }}
           >
@@ -51,9 +57,9 @@ export const Goals = () => {
       {
         position: "top-center",
         autoClose: false,
-        closeOnClick: false,
+        closeButton: false,
         draggable: false,
-        theme: "light",
+        closeOnClick: false,
       }
     );
   };
