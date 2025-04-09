@@ -1,6 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const GoalTable = ({ goals, onDelete }) => {
+const GoalTable = ({ goals, onDelete, onSelectGoal, onToggleComplete }) => {
   return (
     <div>
       <div className="goalTable">
@@ -18,22 +20,43 @@ const GoalTable = ({ goals, onDelete }) => {
                 <th>Progress</th>
                 <th>Amount</th>
                 <th>Action</th>
+                <th>Status</th>
               </tr>
             </thead>
             <tbody>
               {goals.map((goal) => {
                 const progress = ((goal.currentAmt || 0) / goal.goalAmt) * 100;
                 return (
-                  <tr key={goal.id}>
+                  <tr key={goal.id} onClick={() => onSelectGoal(goal.id)}>
                     <td>{goal.goalName}</td>
                     <td>{goal.category}</td>
                     <td>{goal.targetDate}</td>
                     <td>{progress.toFixed(0)}%</td>
                     <td>
-                      #{goal.currentAmt || 0} / #{goal.goalAmt}
+                      ${goal.currentAmt || 0} / ${goal.goalAmt}
                     </td>
                     <td>
-                      <button onClick={() => onDelete(goal.id)}>🗑</button>
+                      <button
+                        className="deleteBtn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onDelete(goal.id);
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </button>
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        checked={goal.completed}
+                        onChange={() => onToggleComplete(goal.id)}
+                        title={
+                          goal.completed
+                            ? "Mark as active"
+                            : "Mark as completed"
+                        }
+                      />
                     </td>
                   </tr>
                 );

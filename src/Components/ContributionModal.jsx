@@ -51,7 +51,7 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
               name="contributionAmt"
               id="contributionAmt"
               type="number"
-              placeholder="Contribution Amount"
+              placeholder="$ Contribution Amount"
               onChange={(event) => setAmount(event.target.value)}
               required
               className="inputField"
@@ -59,7 +59,7 @@ const ContributionModal = ({ onClose, onAdd, goals }) => {
           </div>
           <div>
             <button type="submit" className="inputField addGoalBtn">
-              Add Contribuion
+              Add Contribution
             </button>
           </div>
         </form>

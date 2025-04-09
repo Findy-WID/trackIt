@@ -21,7 +21,7 @@ import Expenses from "../Pages/Expenses";
 
 function AppRouter() {
   const location = useLocation();
-  const ShowSidebar = location.pathname !== "/";
+  const ShowSidebar = !["/", "/login", "/signup"].includes(location.pathname);
 
   return (
     <div className="App">
