@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import GoalFormModal from "../Components/GoalFormModal";
 import ContributionModal from "../Components/ContributionModal";
 import GoalTable from "../Components/GoalTable";
@@ -24,8 +26,41 @@ export const Goals = () => {
 
   const selectedGoal = goals.find((goal) => goal.id === selectedGoalId);
 
+  const handleDeleteGoal = (goalId) => {
+    toast.warn(
+      <div>
+        <p>Are you sure you want to delete this goal?</p>
+        <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
+          <button 
+            onClick={() => {
+              deleteGoal(goalId);
+              toast.dismiss();
+            }}
+            style={{ padding: '5px 10px', background: '#ff4444', color: 'white', border: 'none', borderRadius: '4px' }}
+          >
+            Yes, Delete
+          </button>
+          <button 
+            onClick={() => toast.dismiss()}
+            style={{ padding: '5px 10px', background: '#ccc', color: 'black', border: 'none', borderRadius: '4px' }}
+          >
+            Cancel
+          </button>
+        </div>
+      </div>,
+      {
+        position: "top-center",
+        autoClose: false,
+        closeOnClick: false,
+        draggable: false,
+        theme: "light",
+      }
+    );
+  };
+
   return (
     <div className="goalPage">
+      <ToastContainer />
       <div className="goalHeader">
         <div>
           <h1>Financial Goals</h1>
@@ -62,7 +97,7 @@ export const Goals = () => {
 
       <GoalTable
         goals={goals}
-        onDelete={deleteGoal}
+        onDelete={handleDeleteGoal}
         onSelectGoal={(id) => setSelectedGoalId(id)}
         onToggleComplete={toggleComplete}
       />
