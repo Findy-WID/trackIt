@@ -287,7 +287,6 @@ tr:hover {
   background-color: #cc0000;
 }
 
-/* Add these styles */
 input {
   padding: 5px;
   border: 1px solid #ddd;
@@ -321,18 +320,4 @@ input {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-}
-
-select {
-  padding: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 90%;
-  background-color: white;
-  cursor: pointer;
-}
-
-select:focus {
-  outline: none;
-  border-color: #4CAF50;
 }
