@@ -25,6 +25,47 @@ tr:hover {
   background-color: #f5f5f5;
 }
 
+/* Animation styles for edit form */
+.edit-form {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  transform: translate(-50%, -50%) scale(0.95);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.edit-form.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Overlay behind modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+}
+
+/* Button spacing */
+.edit-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
 @media screen and (max-width: 600px) {
   .table-container {
     overflow-x: scroll;
@@ -273,15 +314,16 @@ tr:hover {
   padding: 20px;
 }
 
-.delete-btn {
-  padding: 5px 10px;
-  background-color: #ff4444;
+.delete-btn, .edit-btn {
+  margin: 0.7rem;
+  /* background-color: #ff4444;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 4px; */
   cursor: pointer;
   transition: background-color 0.3s;
 }
+<<<<<<< HEAD
 
 .delete-btn:hover {
   background-color: #cc0000;
@@ -321,3 +363,5 @@ input {
   border-radius: 4px;
   cursor: pointer;
 }
+=======
+>>>>>>> 46b204fd420551983756ab66afd6c7f9f6e78057

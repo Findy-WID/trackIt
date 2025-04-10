@@ -33,8 +33,16 @@ export const ExpenseProvider = ({ children }) => {
         });
     };
 
+    const updateExpense = (updatedExpense) => {
+        setExpenses((prevExpenses) =>
+          prevExpenses.map((expense) =>
+            expense.id === updatedExpense.id ? updatedExpense : expense
+          )
+        );
+      };
+
     return (
-        <ExpenseContext.Provider value={{ expenses, addExpense, deleteExpense }}>
+        <ExpenseContext.Provider value={{ expenses, addExpense, deleteExpense, updateExpense}}>
             {children}
         </ExpenseContext.Provider>
     );
