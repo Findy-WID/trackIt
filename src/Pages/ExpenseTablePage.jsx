@@ -1,25 +1,33 @@
-import React, { useState, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ExpenseContext } from "../Context/ExpenseContext";
 import "../Styles/Table.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaTrash, FaEdit } from "react-icons/fa";
 
 const ExpenseTablePage = () => {
-  const { expenses, deleteExpense } = useContext(ExpenseContext);
-  const [selectedDate, setSelectedDate] = useState("");
+  const { expenses, deleteExpense, updateExpense } = useContext(ExpenseContext);
 
-  // Filter expenses based on selected date
+  const [selectedDate, setSelectedDate] = useState("");
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [editedExpense, setEditedExpense] = useState({
+    id: "",
+    title: "",
+    amount: "",
+    category: "",
+    desc: ""
+  });
+
+  // Filter expenses by selected date
   const filteredExpenses = selectedDate
     ? expenses.filter((expense) => expense.date === selectedDate)
     : expenses;
 
-  // Calculate total expenses for filtered results
   const totalExpenses = filteredExpenses.reduce(
     (total, expense) => total + Number(expense.amount),
     0
   );
 
-  // Handler to clear the date filter with toast notification
   const handleShowAllExpenses = () => {
     setSelectedDate("");
     toast.info("Showing all expenses", {
@@ -28,10 +36,8 @@ const ExpenseTablePage = () => {
     });
   };
 
-  // Delete expense handler with toast confirmation
   const handleDeleteExpense = (expenseId) => {
     const expenseToDelete = expenses.find((exp) => exp.id === expenseId);
-
     toast.warning(
       <div>
         <p>Delete "{expenseToDelete.title}" expense?</p>
@@ -40,13 +46,10 @@ const ExpenseTablePage = () => {
             onClick={() => {
               deleteExpense(expenseId);
               toast.dismiss();
-              toast.success(
-                `"${expenseToDelete.title}" deleted successfully!`,
-                {
-                  position: "top-right",
-                  autoClose: 3000,
-                }
-              );
+              toast.success(`"${expenseToDelete.title}" deleted successfully!`, {
+                position: "top-right",
+                autoClose: 3000,
+              });
             }}
             style={{
               padding: "5px 10px",
@@ -81,6 +84,28 @@ const ExpenseTablePage = () => {
     );
   };
 
+  const handleSaveEdit = () => {
+    // Ensure edited data values are converted properly
+    const updatedExpense = {
+      ...editedExpense,
+      amount: parseFloat(editedExpense.amount), // Ensure amount is a number
+    };
+
+    if (isNaN(updatedExpense.amount)) {
+      toast.error("Please provide a valid amount");
+      return;
+    }
+
+    // Use the updateExpense function to update the list
+    updateExpense(updatedExpense);
+
+    // Reset editedExpense after update
+    setEditedExpense({ id: "", title: "", amount: "", category: "", desc: "" });
+    setShowEditModal(false);
+
+    toast.success('Expense updated successfully!');
+  };
+
   return (
     <div className="expense-table-page">
       <h2>Expense Summary</h2>
@@ -113,12 +138,21 @@ const ExpenseTablePage = () => {
                   <td>{expense.date}</td>
                   <td>{expense.category}</td>
                   <td>{expense.desc || "-"}</td>
-                  <td>
+                  <td className="flex items-centre content-centre">
+                    <button
+                      style={{ marginRight: "10px", background: "transparent", border: "none" }}
+                      onClick={() => {
+                        setEditedExpense(expense);
+                        setShowEditModal(true);
+                      }}
+                    >
+                      <FaEdit />
+                    </button>
                     <button
                       className="delete-btn"
                       onClick={() => handleDeleteExpense(expense.id)}
                     >
-                      Delete
+                      <FaTrash />
                     </button>
                   </td>
                 </tr>
@@ -128,7 +162,6 @@ const ExpenseTablePage = () => {
         </table>
       </div>
 
-      {/* Show total expenses with a toast when filtered */}
       {selectedDate && (
         <div className="total-expenses">
           <p>
@@ -138,19 +171,78 @@ const ExpenseTablePage = () => {
         </div>
       )}
 
-      {/* Toast Container */}
-      <ToastContainer
-        position="top-right"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+      {/* Edit Modal */}
+      {showEditModal && (
+        <div style={{
+          position: 'fixed',
+          top: 0, left: 0, right: 0, bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.5)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+        }}>
+          <div style={{
+            backgroundColor: '#fff',
+            padding: '20px',
+            borderRadius: '8px',
+            width: '90%',
+            maxWidth: '400px',
+            boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+          }}>
+            <form onSubmit={(e) => { e.preventDefault(); handleSaveEdit(); }}>
+              <h3>Edit Expense</h3>
+              <label>Title:</label>
+              <input
+                type="text"
+                value={editedExpense.title}
+                onChange={(e) => setEditedExpense({ ...editedExpense, title: e.target.value })}
+                required
+              />
+
+              <label>Amount:</label>
+              <input
+                type="number"
+                value={editedExpense.amount}
+                onChange={(e) => setEditedExpense({ ...editedExpense, amount: e.target.value })}
+                required
+              />
+
+              <label>Category:</label>
+              <input
+                type="text"
+                value={editedExpense.category}
+                onChange={(e) => setEditedExpense({ ...editedExpense, category: e.target.value })}
+                required
+              />
+
+              <label>Description:</label>
+              <textarea
+                value={editedExpense.desc}
+                onChange={(e) => setEditedExpense({ ...editedExpense, desc: e.target.value })}
+              />
+
+              <div style={{ marginTop: "15px", display: "flex", justifyContent: "space-between" }}>
+                <button
+                  type="submit"
+                  style={{ padding: '8px 16px', background: '#552C88', color: '#fff', border: 'none', borderRadius: '4px' }}
+                >
+                  Save
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowEditModal(false)}
+                  style={{ padding: '8px 16px', background: '#aaa', color: '#fff', border: 'none', borderRadius: '4px' }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      <ToastContainer />
     </div>
   );
 };
