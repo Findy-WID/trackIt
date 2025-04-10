@@ -133,89 +133,6 @@ const ExpenseTablePage = () => {
             ) : (
               filteredExpenses.map((expense) => (
                 <tr key={expense.id}>
-<<<<<<< HEAD
-                  <td>
-                    {editingId === expense.id ? (
-                      <input
-                        name="title"
-                        value={editForm.title}
-                        onChange={handleInputChange}
-                      />
-                    ) : (
-                      expense.title
-                    )}
-                  </td>
-                  <td>
-                    {editingId === expense.id ? (
-                      <input
-                        name="amount"
-                        type="number"
-                        value={editForm.amount}
-                        onChange={handleInputChange}
-                      />
-                    ) : (
-                      `$${Number(expense.amount).toFixed(2)}`
-                    )}
-                  </td>
-                  <td>
-                    {editingId === expense.id ? (
-                      <input
-                        name="date"
-                        type="date"
-                        value={editForm.date}
-                        onChange={handleInputChange}
-                      />
-                    ) : (
-                      expense.date
-                    )}
-                  </td>
-                  <td>
-                    {editingId === expense.id ? (
-                      <input
-                        name="category"
-                        value={editForm.category}
-                        onChange={handleInputChange}
-                      />
-                    ) : (
-                      expense.category
-                    )}
-                  </td>
-                  <td>
-                    {editingId === expense.id ? (
-                      <input
-                        name="desc"
-                        value={editForm.desc}
-                        onChange={handleInputChange}
-                      />
-                    ) : (
-                      expense.desc || "-"
-                    )}
-                  </td>
-                  <td>
-                    {editingId === expense.id ? (
-                      <button
-                        className="save-btn"
-                        onClick={() => handleSave(expense.id)}
-                      >
-                        Save
-                      </button>
-                    ) : (
-                      <>
-                        <button
-                          className="edit-btn"
-                          onClick={() => handleEdit(expense)}
-                        >
-                          Edit
-                        </button>
-                        <button
-                          className="delete-btn"
-                          onClick={() => handleDeleteExpense(expense.id)}
-                        >
-                          Delete
-                        </button>
-                      </>
-                    )}
-=======
                   <td>{expense.title}</td>
                   <td>N{Number(expense.amount).toFixed(2)}</td>
                   <td>{expense.date}</td>
@@ -237,7 +154,6 @@ const ExpenseTablePage = () => {
                     >
                       <FaTrash />
                     </button>
->>>>>>> 46b204fd420551983756ab66afd6c7f9f6e78057
                   </td>
                 </tr>
               ))
@@ -249,7 +165,7 @@ const ExpenseTablePage = () => {
       {selectedDate && (
         <div className="total-expenses">
           <p>
-            Total for {selectedDate}: ${totalExpenses.toFixed(2)}
+            Total for {selectedDate}: N{totalExpenses.toFixed(2)}
           </p>
           <button onClick={handleShowAllExpenses}>Show All Expenses</button>
         </div>
