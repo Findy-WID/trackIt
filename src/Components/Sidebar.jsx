@@ -20,7 +20,7 @@ import AddExpenseButton from "./AddExpenseButton";
 import LogoutButton from "./LogoutButton";
 
 export const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const [isExpenseDropdown, setIsExpenseDropdown] = useState(false);
   const { user, updateUser } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
