@@ -7,12 +7,6 @@ import { FaTrash, FaEdit } from "react-icons/fa";
 
 const ExpenseTablePage = () => {
   const { expenses, deleteExpense, updateExpense } = useContext(ExpenseContext);
-<<<<<<< HEAD
-  const [selectedDate, setSelectedDate] = useState("");
-  const [editingId, setEditingId] = useState(null); // Track which row is being edited
-  const [editForm, setEditForm] = useState({}); // Store edited values
-=======
->>>>>>> 46b204fd420551983756ab66afd6c7f9f6e78057
 
   const [selectedDate, setSelectedDate] = useState("");
   const [showEditModal, setShowEditModal] = useState(false);
@@ -90,44 +84,6 @@ const ExpenseTablePage = () => {
     );
   };
 
-<<<<<<< HEAD
-  // Handle edit button click
-  const handleEdit = (expense) => {
-    setEditingId(expense.id);
-    setEditForm({
-      title: expense.title,
-      amount: expense.amount,
-      date: expense.date,
-      category: expense.category,
-      desc: expense.desc || "",
-    });
-  };
-
-  // Handle save changes
-  const handleSave = async (id) => {
-    try {
-      await updateExpense(id, editForm);
-      setEditingId(null);
-      toast.success("Saved!", {
-        position: "top-right",
-        autoClose: 2000,
-      });
-    } catch (error) {
-      toast.error("Failed to save changes. Please try again.", {
-        position: "top-right",
-        autoClose: 2000,
-      });
-    }
-  };
-
-  // Handle input changes
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setEditForm((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-=======
   const handleSaveEdit = () => {
     // Ensure edited data values are converted properly
     const updatedExpense = {
@@ -148,7 +104,6 @@ const ExpenseTablePage = () => {
     setShowEditModal(false);
 
     toast.success('Expense updated successfully!');
->>>>>>> 46b204fd420551983756ab66afd6c7f9f6e78057
   };
 
   return (
