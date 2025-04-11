@@ -6,8 +6,15 @@ import TotalExpense from "../Components/TotalExpense"
 import ActiveGoals from "../Components/ActiveGoals";
 import ExpenseVsSavingsChart from '../Components/ExpensesVsSavings';
 import "../Styles/App.css";
+import OverallGoalProgressBar from '../Components/OverallGoalProgressBar';
 
 export const Home = () => {
+
+  const goals = [
+    { id: 1, target: 100, current: 100 },  // This goal is 100% complete
+  ];
+
+
   return (
     <>
       <div className="border border-gray-300 rounded-lg p-6">
@@ -30,6 +37,7 @@ export const Home = () => {
     <div className="bg-purple-800 text-white rounded-xl p-6 shadow-lg">
       {/* Goals Progress Bar or Overview */}
       <p>Goals Progress Overview</p>
+      <OverallGoalProgressBar goals={goals} />
     </div>
   </div>
 </div>

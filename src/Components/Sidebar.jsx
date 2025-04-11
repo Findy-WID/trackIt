@@ -133,7 +133,9 @@ export const Sidebar = () => {
           <div
             className={`expenseBtnContainer ${isOpen ? "visible" : "hidden"}`}
           >
-            <AddExpenseButton onClick={() => setShowModal(true)} />
+            <Link to="/expenses">
+              <AddExpenseButton />
+            </Link>
             <LogoutButton onClick={handleLogout} />
           </div>
 

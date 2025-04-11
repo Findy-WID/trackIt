@@ -16,7 +16,7 @@ const Expenses = () => {
           <ExpenseOverview />
         </div>
         <div>
-          <ExpenseList />
+          {/* <ExpenseList /> */}
         </div>
       </>
     
